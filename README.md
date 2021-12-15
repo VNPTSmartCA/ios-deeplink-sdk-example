@@ -48,6 +48,8 @@ At a minimum, VNPT SmartCA iOS SDK is designed to work with iOS 9.0 or the newes
 ***Step 2: Import SDK in AppDelegate instance***
 
 ```swift
+import VNPTSmartCAiOSSDK // You need import before using
+
 func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     VNPTSmartCATransaction.receiveBackLink(url: url, sourceApp: sourceApplication!)
     return true
@@ -62,6 +64,8 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 *Note:* To iOS 13 or the newest, you need import SDK in SceneDelegate.swift file
 
 ```swift
+import VNPTSmartCAiOSSDK // You need import before using
+
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
     VNPTSmartCATransaction.receiveBackLink(url: URLContexts.first!.url, sourceApp: "")
 }
@@ -76,31 +80,50 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 - Before start open VNPT SmartCA app, you need specific environment to integrate by `VNPTSmartCATransaction.setEnvironment` function. Have two choices: `VNPTSmartCATransaction.ENVIRONMENT.DEMO` and `VNPTSmartCATransaction.ENVIRONMENT.PRODUCTION`.
 
 ```swift
+import VNPTSmartCAiOSSDK // You need import before using
+
 override func viewDidLoad() {
-  super.viewDidLoad()
-  //STEP 1: addObserver Notification
-  NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
-  NotificationCenter.default.addObserver(self, selector: #selector(self.NotificationCenterTokenReceived), name:NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
-  //STEP 2: INIT TRANSACTION BASIC INFO AS CLIENT ID AND TRAN ID
-  let tranInfo: NSMutableDictionary = NSMutableDictionary()
-  tranInfo["clientId"] = "partnerId03"
-  tranInfo["tranId"] = "bd8bd260-5302-4863-8fc2-013ab1583642"
-  VNPTSmartCATransaction.setEnvironment(_environment: VNPTSmartCATransaction.ENVIRONMENT.DEMO)
-  VNPTSmartCATransaction.createTransactionInformation(info: tranInfo)
-  //STEP 3: INIT LAYOUT - ADD BUTTON OPEN VNPTSMARTCA
-  let buttonOpen = UIButton()
-  buttonOpen.frame = CGRect(x: 20, y: 200, width: 260, height: 40)
-  buttonOpen.setTitle("Open VNPT SmartCA", for: .normal)
-  buttonOpen.setTitleColor(UIColor.white, for: .normal)
-  buttonOpen.titleLabel!.font = UIFont.systemFont(ofSize: 15)
-  buttonOpen.backgroundColor = UIColor.blue
-  
-  buttonOpen.addTarget(self, action: #selector(self.openApp), for: .touchUpInside)
-  self.view.addSubview(buttonOpen)
+    //STEP 1: addObserver Notification
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.NotificationCenterTokenReceived), name:NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
+    
+    //STEP 2: INIT TRANSACTION BASIC INFO AS CLIENT ID AND TRAN ID
+    let tranInfo: NSMutableDictionary = NSMutableDictionary()
+
+    tranInfo["clientId"] = "partnerSchemeId" // You need pass your client ID replace for 'partnerSchemeId'.
+    tranInfo["tranId"] = "transactionId" // You need pass your transaction ID replace for 'transactionId'.
+    
+    VNPTSmartCATransaction.setEnvironment(_environment: VNPTSmartCATransaction.ENVIRONMENT.DEMO)
+    VNPTSmartCATransaction.createTransactionInformation(info: tranInfo)
+    
+    //STEP 3: INIT LAYOUT - ADD BUTTON OPEN VNPTSMARTCA
+    let buttonOpen = UIButton()
+    buttonOpen.frame = CGRect(x: 20, y: 200, width: 260, height: 40)
+    buttonOpen.setTitle("Open VNPT SmartCA", for: .normal)
+    buttonOpen.setTitleColor(UIColor.white, for: .normal)
+    buttonOpen.titleLabel!.font = UIFont.systemFont(ofSize: 15)
+    buttonOpen.backgroundColor = UIColor.blue
+    
+    buttonOpen.addTarget(self, action: #selector(self.openApp), for: .touchUpInside)
+    self.view.addSubview(buttonOpen)
 }
 
 @objc func openApp() {
-  VNPTSmartCATransaction.handleOpen()
+    VNPTSmartCATransaction.handleOpen()
+}
+
+@objc func NotificationCenterTokenReceived(notify: NSNotification) {
+    let response: NSMutableDictionary = notify.object! as! NSMutableDictionary
+        
+    let _statusStr = "\(response["status"] as! String)"
+    let _message = response["message"]
+    
+    if (_statusStr == "0") {
+        print("Status code: \(_statusStr)")
+        print("Message:", _message as! String)
+    } else {
+        
+    }
 }
 ```
 
