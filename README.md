@@ -161,9 +161,9 @@ override func viewDidLoad() {
 
 VNPT SmartCA Development Team
 
-## License
+## Copyright©
 
-VNPT SmartCA iOS SDK is licensed under [Copyright (c) 2021 VNPTSmartCA](https://github.com/VNPTSmartCA/ios-sdk-example/blob/master/LICENSE).
+[Copyright (c) 2021 VNPTSmartCA](https://github.com/VNPTSmartCA/ios-sdk-example/blob/master/LICENSE).
 
 ## Contact - Support
 
