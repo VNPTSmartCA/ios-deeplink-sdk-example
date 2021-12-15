@@ -1,6 +1,6 @@
 # Example source code to integrate with VNPTSmartCA iOS SDK
 
-To run the example project, clone repository, and run *pod install*
+To run the example project, clone repository, and run `pod install`
 
 ## Requirements
 
