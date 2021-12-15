@@ -13,7 +13,8 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.NoficationCenterTokenReceived), name:NSNotification.Name(rawValue: "<VNPTSmartCA>NoficationCenterTokenReceived"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.NotificationCenterTokenReceived), name:NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
         
         let tranInfo: NSMutableDictionary = NSMutableDictionary()
         tranInfo["clientId"] = "partnerId03"
@@ -41,7 +42,7 @@ class SecondViewController: UIViewController {
         VNPTSmartCATransaction.handleOpen()
     }
     
-    @objc func NoficationCenterTokenReceived(notif: NSNotification) {
-        print("VNPT SmartCA:\(notif.object!)")
+    @objc func NotificationCenterTokenReceived(notify: NSNotification) {
+        print("VNPT SmartCA:\(notify.object!)")
     }
 }

@@ -6,5 +6,5 @@ target 'TestLib01' do
   use_frameworks!
 
   # Pods for TestLib01
-  pod 'VNPTSmartCAiOSSDK', '~>1.0.0'
+  pod 'VNPTSmartCAiOSSDK', '~>1.0.1'
 end
