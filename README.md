@@ -72,7 +72,36 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 *Note:*
 
 - NotificationCenter registration VNPTSMARTCA NOTIFICATION KEYS should be removed when the ViewControllers relocating or dismissing completed
-- Notification keys: ```<VNPTSmartCA>NotificationCenterReceived```
+- Notification keys: `<VNPTSmartCA>NotificationCenterReceived`
+
+```swift
+override func viewDidLoad() {
+  super.viewDidLoad()
+  
+  NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
+  NotificationCenter.default.addObserver(self, selector: #selector(self.NotificationCenterTokenReceived), name:NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
+  
+  let tranInfo: NSMutableDictionary = NSMutableDictionary()
+  tranInfo["clientId"] = "partnerId03"
+  tranInfo["tranId"] = "bd8bd260-5302-4863-8fc2-013ab1583642"
+  VNPTSmartCATransaction.setEnvironment(_environment: VNPTSmartCATransaction.ENVIRONMENT.DEMO)
+  VNPTSmartCATransaction.createTransactionInformation(info: tranInfo)
+  
+  let buttonOpen = UIButton()
+  buttonOpen.frame = CGRect(x: 20, y: 200, width: 260, height: 40)
+  buttonOpen.setTitle("Open VNPT SmartCA", for: .normal)
+  buttonOpen.setTitleColor(UIColor.white, for: .normal)
+  buttonOpen.titleLabel!.font = UIFont.systemFont(ofSize: 15)
+  buttonOpen.backgroundColor = UIColor.blue
+  
+  buttonOpen.addTarget(self, action: #selector(self.openApp), for: .touchUpInside)
+  self.view.addSubview(buttonOpen)
+}
+
+@objc func openApp() {
+  VNPTSmartCATransaction.handleOpen()
+}
+```
 
 ## Author
 
