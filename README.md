@@ -165,6 +165,10 @@ VNPT SmartCA Development Team
 
 [Copyright (c) 2021 VNPTSmartCA](https://github.com/VNPTSmartCA/ios-sdk-example/blob/master/LICENSE).
 
+## Version
+
+1.0.2
+
 ## Contact - Support
 
 email: hoangdinhoi@vnpt.vn
