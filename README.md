@@ -72,7 +72,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 *Note:*
 
 - NotificationCenter registration VNPTSMARTCA NOTIFICATION KEYS should be removed when the ViewControllers relocating or dismissing completed
-- Notification keys: `<VNPTSmartCA>NotificationCenterReceived`
+- Notification keys: ```<VNPTSmartCA>NotificationCenterReceived```
 
 ## Author
 
