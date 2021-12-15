@@ -127,7 +127,14 @@ override func viewDidLoad() {
 }
 ```
 
-*Response* Status code table
+***Request param***
+
+| Param    | Description                                             |
+|----------|---------------------------------------------------------|
+| tranId   | ID' transaction                                         |
+| clientId | Your ID in VNPTSmartCA' system. Provided by VNPTSmartCA |
+
+***Response status code table***
 
 | Code  | Description                                |
 |-------|--------------------------------------------|
@@ -160,5 +167,4 @@ VNPT SmartCA iOS SDK is licensed under [The MIT license](https://github.com/VNPT
 
 ## Contact - Support
 
-Hoang Dinh Hoi
-Email: hoangdinhoi@vnpt.vn
+email: hoangdinhoi@vnpt.vn
