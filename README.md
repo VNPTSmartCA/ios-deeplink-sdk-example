@@ -111,7 +111,7 @@ override func viewDidLoad() {
 @objc func openApp() {
     VNPTSmartCATransaction.handleOpen()
 }
-
+// You can listen return event from VNPTSmartCA app in here
 @objc func NotificationCenterTokenReceived(notify: NSNotification) {
     let response: NSMutableDictionary = notify.object! as! NSMutableDictionary
         
