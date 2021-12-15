@@ -8,7 +8,7 @@ To run the example project, clone repository, and run `pod install`
 
 VNPT SmartCA iOS SDK is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile.
 
-```Swift
+```Pod
 pod 'VNPTSmartCAiOSSDK', '~>1.0.0'
 ```
 
