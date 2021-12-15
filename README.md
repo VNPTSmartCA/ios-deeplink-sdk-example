@@ -18,7 +18,7 @@ At a minimum, VNPT SmartCA iOS SDK is designed to work with iOS 9.0 or the newes
 
 Step 1: Config file pList
 
-```Swift
+```xml
 <key>CFBundleURLTypes</key>
 <array>
   <dict>
