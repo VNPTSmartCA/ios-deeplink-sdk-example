@@ -163,7 +163,7 @@ VNPT SmartCA Development Team
 
 ## License
 
-VNPT SmartCA iOS SDK is licensed under [The MIT license](https://github.com/VNPTSmartCA/ios-sdk-example/blob/master/LICENSE).
+VNPT SmartCA iOS SDK is licensed under [Copyright (c) 2021 VNPTSmartCA](https://github.com/VNPTSmartCA/ios-sdk-example/blob/master/LICENSE).
 
 ## Contact - Support
 
