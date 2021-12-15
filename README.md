@@ -9,7 +9,7 @@ To run the example project, clone repository, and run `pod install`
 VNPT SmartCA iOS SDK is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile.
 
 ```ruby
-pod 'VNPTSmartCAiOSSDK', '~>1.0.0'
+pod 'VNPTSmartCAiOSSDK'
 ```
 
 At a minimum, VNPT SmartCA iOS SDK is designed to work with iOS 9.0 or the newest.
@@ -73,20 +73,21 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 - NotificationCenter registration VNPTSMARTCA NOTIFICATION KEYS should be removed when the ViewControllers relocating or dismissing completed
 - Notification keys: `<VNPTSmartCA>NotificationCenterReceived`
+- Before start open VNPT SmartCA app, you need specific environment to integrate by `VNPTSmartCATransaction.setEnvironment` function. Have two choices: `VNPTSmartCATransaction.ENVIRONMENT.DEMO` and `VNPTSmartCATransaction.ENVIRONMENT.PRODUCTION`.
 
 ```swift
 override func viewDidLoad() {
   super.viewDidLoad()
-  
+  //STEP 1: addObserver Notification
   NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
   NotificationCenter.default.addObserver(self, selector: #selector(self.NotificationCenterTokenReceived), name:NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
-  
+  //STEP 2: INIT TRANSACTION BASIC INFO AS CLIENT ID AND TRAN ID
   let tranInfo: NSMutableDictionary = NSMutableDictionary()
   tranInfo["clientId"] = "partnerId03"
   tranInfo["tranId"] = "bd8bd260-5302-4863-8fc2-013ab1583642"
   VNPTSmartCATransaction.setEnvironment(_environment: VNPTSmartCATransaction.ENVIRONMENT.DEMO)
   VNPTSmartCATransaction.createTransactionInformation(info: tranInfo)
-  
+  //STEP 3: INIT LAYOUT - ADD BUTTON OPEN VNPTSMARTCA
   let buttonOpen = UIButton()
   buttonOpen.frame = CGRect(x: 20, y: 200, width: 260, height: 40)
   buttonOpen.setTitle("Open VNPT SmartCA", for: .normal)
