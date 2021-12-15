@@ -1,0 +1,11 @@
+framework module VNPTSmartCAiOSSDK {
+  umbrella header "VNPTSmartCAiOSSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module VNPTSmartCAiOSSDK.Swift {
+    header "VNPTSmartCAiOSSDK-Swift.h"
+    requires objc
+}
