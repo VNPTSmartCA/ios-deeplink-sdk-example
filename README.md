@@ -16,7 +16,7 @@ At a minimum, VNPT SmartCA iOS SDK is designed to work with iOS 9.0 or the newes
 
 ### Configure Steps
 
-***Step 1: Config file pList***
+***Step 1:*** Config file pList
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -45,7 +45,7 @@ At a minimum, VNPT SmartCA iOS SDK is designed to work with iOS 9.0 or the newes
 - ***CFBundleURLTypes***: Add scheme value. Note: *partnerSchemeId* provided by VNPT SmartCA. It's clientId.
 - ***LSApplicationQueriesSchemes***: Add the scheme as *vnptsmartca* and *vnptsmartcademo*.
 
-***Step 2: Import SDK in AppDelegate instance***
+***Step 2:*** Import SDK in AppDelegate instance
 
 ```swift
 import VNPTSmartCAiOSSDK // You need import before using
@@ -71,7 +71,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 }
 ```
 
-***Step 3: Update layout and pass required param to open VNPT SmartCA App***
+***Step 3:*** Update layout and pass required param to open VNPT SmartCA App
 
 *Note:*
 
