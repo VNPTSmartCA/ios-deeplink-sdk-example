@@ -132,7 +132,7 @@ override func viewDidLoad() {
 | Param    | Description                                                                                           |
 |----------|-------------------------------------------------------------------------------------------------------|
 | tranId   | When you request create a signature transaction to VNPT SmartCA System by API, you'll receive tranId. |
-| clientId | When you request integrate with VNPT SmartCA System. You'll a clientId.                               |
+| clientId | When you request integrate with VNPT SmartCA System. You'll receive a clientId.                       |
 
 ***Response status code table***
 
