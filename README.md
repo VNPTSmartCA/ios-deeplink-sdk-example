@@ -127,6 +127,29 @@ override func viewDidLoad() {
 }
 ```
 
+*Response* Status code table
+
+| Code  | Description                                |
+|-------|--------------------------------------------|
+| 0     | Success                                    |
+| 1     | User rejected                              |
+| 60000 | Credential not exist                       |
+| 60001 | Credential not match identity              |
+| 60002 | Credential no result                       |
+| 60003 | Credential status invalid                  |
+| 61000 | Credential assign key failed               |
+| 62000 | Signature transaction not found            |
+| 62001 | Signature transaction not match identity   |
+| 62002 | Signature transaction expired              |
+| 62003 | Signature transaction not waiting          |
+| 62010 | Signature data request invalid format      |
+| 63000 | Credential sign signer authen failed       |
+| 63001 | Credential sign init hash signer failed    |
+| 63002 | Credential sign file upload failed         |
+| 64000 | Credential sign file not support file type |
+| 64001 | Credential acceptance generate file failed |
+| 64002 | Credential acceptance transaction exist    |
+
 ## Author
 
 VNPT SmartCA Development Team
@@ -134,3 +157,8 @@ VNPT SmartCA Development Team
 ## License
 
 VNPT SmartCA iOS SDK is licensed under [The MIT license](https://github.com/VNPTSmartCA/ios-sdk-example/blob/master/LICENSE).
+
+## Contact - Support
+
+Hoang Dinh Hoi
+Email: hoangdinhoi@vnpt.vn
