@@ -174,7 +174,7 @@ VNPT SmartCA Development Team
 
 ## Version
 
-1.0.2
+1.0.8
 
 ## Contact - Support
 
