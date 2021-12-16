@@ -140,6 +140,13 @@ override func viewDidLoad() {
 |-------|--------------------------------------------|
 | 0     | Success                                    |
 | 1     | User rejected                              |
+| 2     | Unknown error                              |
+| 3     | Device not found                           |
+| 4     | Can not sign key challenge                 |
+| 5     | PIN fail count                             |
+| 6     | KAK Not found                              |
+| 7     | PIN Not found                              |
+| 8     | Token expired                              |
 | 60000 | Credential not exist                       |
 | 60001 | Credential not match identity              |
 | 60002 | Credential no result                       |
