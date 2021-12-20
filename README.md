@@ -147,6 +147,7 @@ override func viewDidLoad() {
 | 6     | KAK Not found                              |
 | 7     | PIN Not found                              |
 | 8     | Token expired                              |
+| 30000 | Client not found in system                 |
 | 60000 | Credential not exist                       |
 | 60001 | Credential not match identity              |
 | 60002 | Credential no result                       |
@@ -168,13 +169,9 @@ override func viewDidLoad() {
 
 VNPT SmartCA Development Team
 
-## Copyright©
+## Copyright ©
 
 [Copyright (c) 2021 VNPTSmartCA](https://github.com/VNPTSmartCA/ios-sdk-example/blob/master/LICENSE).
-
-## Version
-
-1.0.8
 
 ## Contact - Support
 

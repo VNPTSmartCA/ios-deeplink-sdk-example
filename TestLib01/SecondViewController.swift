@@ -48,12 +48,8 @@ class SecondViewController: UIViewController {
         let _statusStr = "\(response["status"] as! String)"
         let _message = response["message"]
         
-        if (_statusStr == "0") {
-            print("Status code: \(_statusStr)")
-            print("Message:", _message as! String)
-        } else {
-            
-        }
+        print("Status code: \(_statusStr)")
+        print("Message:", _message as! String)
         
         
     }
