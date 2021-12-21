@@ -1,4 +1,4 @@
-//
+//  Copyright © VNPTSmartCA 2021. All rights reversed.
 //  SecondViewController.swift
 //  TestLib01
 //
@@ -10,6 +10,19 @@ import VNPTSmartCAiOSSDK
 
 class SecondViewController: UIViewController {
 
+    
+    @IBOutlet weak var clientIdLbl: UILabel!
+    @IBOutlet weak var tranIdLbl: UILabel!
+    @IBOutlet weak var statusCode: UILabel!
+    @IBOutlet weak var msg: UILabel!
+    
+    @IBAction func connect_vnpt_smartca(_ sender: UIButton) {
+        VNPTSmartCATransaction.handleOpen();
+    }
+    
+    var clientID = "VNPTSmartCAPartner-add1fb94-9629-4947-b7d8-f2671b04c747";
+    var tranID = "37985040-caf0-4c39-8c87-ff870653fdf2";
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,20 +30,18 @@ class SecondViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.NotificationCenterReceived), name:NSNotification.Name(rawValue: "<VNPTSmartCA>NotificationCenterReceived"), object: nil)
         
         let tranInfo: NSMutableDictionary = NSMutableDictionary()
-        tranInfo["clientId"] = "partnerId03"
-        tranInfo["tranId"] = "bd8bd260-5302-4863-8fc2-013ab1583642"
-        VNPTSmartCATransaction.setEnvironment(_environment: VNPTSmartCATransaction.ENVIRONMENT.DEMO)
+        
+        
+        tranInfo["clientId"] = clientID;
+        tranInfo["tranId"] = tranID;
+        
+        tranIdLbl.text = "Transaction ID: \(tranID)";
+        tranIdLbl.numberOfLines = 2;
+        clientIdLbl.text = "Client ID: \(clientID)";
+        clientIdLbl.numberOfLines = 2;
+        
+        VNPTSmartCATransaction.setEnvironment(_environment: VNPTSmartCATransaction.ENVIRONMENT.PRODUCTION)
         VNPTSmartCATransaction.createTransactionInformation(info: tranInfo)
-        
-        let buttonOpen = UIButton()
-        buttonOpen.frame = CGRect(x: 20, y: 200, width: 260, height: 40)
-        buttonOpen.setTitle("Open VNPT SmartCA", for: .normal)
-        buttonOpen.setTitleColor(UIColor.white, for: .normal)
-        buttonOpen.titleLabel!.font = UIFont.systemFont(ofSize: 15)
-        buttonOpen.backgroundColor = UIColor.blue
-        
-        buttonOpen.addTarget(self, action: #selector(self.openApp), for: .touchUpInside)
-        self.view.addSubview(buttonOpen)
     }
     
 
@@ -38,18 +49,14 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @objc func openApp() {
-        VNPTSmartCATransaction.handleOpen()
-    }
-    
     @objc func NotificationCenterReceived(notify: NSNotification) {
         let response: NSMutableDictionary = notify.object! as! NSMutableDictionary
         
-        let _statusStr = "\(response["status"] as! String)"
-        let _message = response["message"]
+        let _statusStr = "\(response["status"] as! String)";
+        let _message = "\(response["message"] as! String)";
         
-        print("Status code: \(_statusStr)")
-        print("Message:", _message as! String)
+        statusCode.text = "Status Code: \(_statusStr)";
+        msg.text = "Message: \(_message )";
         
         
     }
